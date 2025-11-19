@@ -48,17 +48,22 @@ button {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  max-width: 600px; /* Mobile-first constraint as per typical medical app usage */
+  /* Fallback for browsers that don't support dvh */
+  height: 100dvh;
+  /* Dynamic viewport height for mobile browsers */
+  max-width: 600px;
+  /* Mobile-first constraint as per typical medical app usage */
   margin: 0 auto;
   background-color: var(--surface-color);
-  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
   position: relative;
 }
 
 .main-content {
   flex: 1;
   overflow-y: auto;
-  padding-bottom: 80px; /* Space for bottom nav */
+  padding-bottom: 80px;
+  /* Space for bottom nav */
 }
 
 .bottom-nav {
@@ -73,6 +78,9 @@ button {
   justify-content: space-around;
   align-items: center;
   z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom);
+  /* Handle iPhone home bar */
+  height: calc(64px + env(safe-area-inset-bottom));
 }
 
 .nav-item {
@@ -91,11 +99,34 @@ button {
 }
 
 /* Utility classes */
-.text-urgent { color: var(--urgent-color); }
-.font-bold { font-weight: 600; }
-.flex { display: flex; }
-.items-center { align-items: center; }
-.justify-between { justify-content: space-between; }
-.gap-2 { gap: 0.5rem; }
-.p-4 { padding: 1rem; }
-.mt-4 { margin-top: 1rem; }
+.text-urgent {
+  color: var(--urgent-color);
+}
+
+.font-bold {
+  font-weight: 600;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
