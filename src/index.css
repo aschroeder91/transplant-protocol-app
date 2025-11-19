@@ -24,6 +24,16 @@ body {
   color: var(--text-primary);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  height: 100%;
+  overflow: hidden;
+  /* Prevent body scroll */
+  overscroll-behavior: none;
+  /* Prevent pull-to-refresh/rubber-banding */
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
 }
 
 a {
@@ -47,23 +57,26 @@ button {
 .app-layout {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  /* Fallback for browsers that don't support dvh */
+  position: fixed;
+  /* Lock to viewport */
+  inset: 0;
+  /* top: 0, right: 0, bottom: 0, left: 0 */
   height: 100dvh;
-  /* Dynamic viewport height for mobile browsers */
+  width: 100%;
   max-width: 600px;
-  /* Mobile-first constraint as per typical medical app usage */
   margin: 0 auto;
   background-color: var(--surface-color);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-  position: relative;
+  z-index: 1;
 }
 
 .main-content {
   flex: 1;
   overflow-y: auto;
-  padding-bottom: 80px;
-  /* Space for bottom nav */
+  -webkit-overflow-scrolling: touch;
+  /* Smooth scrolling on iOS */
+  padding-bottom: calc(80px + env(safe-area-inset-bottom));
+  /* Ensure content clears the nav + safe area */
 }
 
 .bottom-nav {

@@ -41,6 +41,19 @@ function Home() {
                     />
                 </div>
             </form>
+
+            <img
+                src="/salz.png"
+                alt="Salz"
+                style={{
+                    position: 'absolute',
+                    bottom: '1rem',
+                    right: '1rem',
+                    width: '50px',
+                    height: 'auto',
+                    opacity: 0.8
+                }}
+            />
         </div>
     );
 }
