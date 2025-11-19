@@ -3,6 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import logo from '../assets/KTXP-logo.svg';
 import { Search } from 'lucide-react';
 
+import audio1 from '../assets/audio/1.mp3';
+import audio2 from '../assets/audio/2.mp3';
+import audio3 from '../assets/audio/3.mp3';
+import audio5 from '../assets/audio/5.mp3';
+import audio6 from '../assets/audio/6.mp3';
+import audio7 from '../assets/audio/7.mp3';
+import audio8 from '../assets/audio/8.mp3';
+
 function Home() {
     const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
@@ -12,6 +20,41 @@ function Home() {
         if (searchTerm.trim()) {
             navigate(`/protocols?search=${encodeURIComponent(searchTerm)}`);
         }
+    };
+
+    const [salzImage, setSalzImage] = useState('/salz.png');
+    // Audio files 1-3 trigger the frown image
+    const frownAudioFiles = [audio1, audio2, audio3];
+    const otherAudioFiles = [audio5, audio6, audio7, audio8];
+    const audioFiles = [...frownAudioFiles, ...otherAudioFiles];
+
+    const playRandomAudio = () => {
+        const randomIndex = Math.floor(Math.random() * audioFiles.length);
+        const selectedFile = audioFiles[randomIndex];
+        const audio = new Audio(selectedFile);
+
+        // Check if the selected file is one of the frown-inducing audios
+        if (frownAudioFiles.includes(selectedFile)) {
+            setSalzImage('/salz-frown.png');
+
+            // Reset when audio ends
+            audio.onended = () => {
+                setSalzImage('/salz.png');
+            };
+
+            // Reset on error
+            audio.onerror = (e) => {
+                console.error("Audio error:", e);
+                setSalzImage('/salz.png');
+            };
+        }
+
+        // Play audio
+        audio.play().catch(e => {
+            console.error("Error playing audio:", e);
+            // Revert image if play fails
+            setSalzImage('/salz.png');
+        });
     };
 
     return (
@@ -39,21 +82,22 @@ function Home() {
                             outline: 'none'
                         }}
                     />
+                    <img
+                        src={salzImage}
+                        alt="Salz"
+                        onClick={playRandomAudio}
+                        style={{
+                            position: 'absolute',
+                            top: '5px',
+                            right: '-40px',
+                            width: '100px',
+                            height: 'auto',
+                            zIndex: 10,
+                            cursor: 'pointer'
+                        }}
+                    />
                 </div>
             </form>
-
-            <img
-                src="/salz.png"
-                alt="Salz"
-                style={{
-                    position: 'absolute',
-                    bottom: '1rem',
-                    right: '1rem',
-                    width: '50px',
-                    height: 'auto',
-                    opacity: 0.8
-                }}
-            />
         </div>
     );
 }
