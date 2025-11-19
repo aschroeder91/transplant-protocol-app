@@ -61,3 +61,17 @@ If you prefer managing a server yourself (e.g., using Nginx):
        try_files $uri $uri/ /index.html;
    }
    ```
+
+## Troubleshooting
+
+### Error: "failed to launch: determine start command"
+If you see this error, DigitalOcean is trying to run your app as a **Web Service** (Node.js server) instead of a **Static Site**.
+
+**Fix:**
+1. Go to your App settings in DigitalOcean.
+2. Find the component (usually named after your repo).
+3. Look for **Resource Type** or **Type**.
+4. Change it from **Web Service** to **Static Site**.
+5. Save and re-deploy.
+
+If you *must* run it as a Web Service, you need to add a start script to `package.json` and use a static file server, but switching to **Static Site** is the correct and cheaper solution.

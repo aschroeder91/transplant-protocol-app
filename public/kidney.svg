@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="#ef4444" stroke="#b91c1c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Kidney bean shape -->
+  <path d="M35,25 
+           C20,25 10,40 10,55 
+           C10,75 25,90 45,90 
+           C60,90 70,80 80,70 
+           C90,60 90,40 80,30 
+           C70,20 60,20 55,30 
+           C50,40 40,40 35,25 Z" 
+           fill="#f87171" />
+  <!-- Highlight for 3D effect -->
+  <path d="M25,40 C25,40 20,50 25,60" stroke="white" stroke-width="3" fill="none" opacity="0.5" />
+</svg>
