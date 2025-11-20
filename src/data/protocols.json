@@ -48,7 +48,8 @@
       "calcineurin inhibitor",
       "trough",
       "level",
-      "rejection"
+      "rejection",
+      "fk506"
     ],
     "overview": "<h3>Target Levels</h3><ul><li>Month 0-3: 8-10 ng/mL</li><li>Month 3-6: 6-8 ng/mL</li><li>&gt;6 Months: 5-7 ng/mL</li></ul>",
     "detailed": "<h3>Tacrolimus Dosing &amp; Monitoring</h3><p><strong>Initial Dosing:</strong> 0.05-0.1 mg/kg/day divided BID (use ideal or adjusted body weight per local protocol).</p><p><strong>Monitoring:</strong> Obtain trough levels 12 hours post-dose and just before next dose. Adjust dose to maintain target range based on post-transplant time and rejection risk.</p><p><strong>Drug Interactions (CYP3A4/5):</strong></p><ul><li><strong>Increase levels:</strong> Azole antifungals, macrolides (e.g., clarithromycin), diltiazem/verapamil, some antivirals, grapefruit juice.</li><li><strong>Decrease levels:</strong> Rifampin, phenytoin, carbamazepine, St. John’s wort.</li></ul><p><strong>Monitoring for Toxicity:</strong> Neurotoxicity (tremor, headache), nephrotoxicity (rising creatinine), hypertension, hyperglycemia, hyperkalemia, GI upset.</p>"
