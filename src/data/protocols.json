@@ -5,6 +5,16 @@
     "category": "Electrolytes",
     "isUrgent": true,
     "fileName": "hyperkalemia-management",
+    "keywords": [
+      "potassium",
+      "k+",
+      "arrhythmia",
+      "peaked t waves",
+      "calcium gluconate",
+      "insulin",
+      "kayexalate",
+      "lokelma"
+    ],
     "overview": "<h3>Immediate Actions</h3><ul><li>Calcium Gluconate 1g IV</li><li>Insulin 10 units IV + D50 50ml</li><li>Albuterol nebulizer</li></ul>",
     "detailed": "<h3>Hyperkalemia Protocol</h3><p><strong>Definition:</strong> Serum potassium &gt; 5.5 mEq/L</p><h4>Severe (&gt;6.5 or EKG changes)</h4><ul><li><strong>Stabilize Membrane:</strong> Calcium Gluconate 1g IV over 2-3 mins. Repeat if EKG changes persist.</li><li><strong>Shift K+:</strong> Regular Insulin 10 units IV push + Dextrose 50% (25g) IV push.</li><li><strong>Eliminate K+:</strong> Furosemide 40-80mg IV, Kayexalate (if appropriate), Dialysis (definitive).</li></ul>"
   },
@@ -14,6 +24,14 @@
     "category": "Infectious Disease",
     "isUrgent": false,
     "fileName": "cmv-prophylaxis",
+    "keywords": [
+      "cytomegalovirus",
+      "valganciclovir",
+      "valcyte",
+      "viral",
+      "infection",
+      "donor positive"
+    ],
     "overview": "<h3>Standard Prophylaxis</h3><ul><li>Valganciclovir 900mg daily (renal dose adjust)</li><li>Duration: 3-6 months post-transplant</li></ul>",
     "detailed": "<h3>CMV Prophylaxis Protocol</h3><p><strong>Risk Stratification:</strong></p><ul><li>D+/R-: High Risk -&gt; 6 months Valganciclovir</li><li>D+/R+ or D-/R+: Intermediate Risk -&gt; 3 months Valganciclovir</li><li>D-/R-: Low Risk -&gt; Acyclovir for HSV prophylaxis only</li></ul><p><strong>Dosing (adjust for renal function and local guidelines):</strong></p><ul><li>CrCl &gt; 60: 900mg daily</li><li>CrCl 40-59: 450mg daily</li><li>CrCl 25-39: 450mg every 2 days</li><li>CrCl &lt; 25 or dialysis: follow pharmacy/local protocol</li></ul>"
   },
@@ -23,6 +41,15 @@
     "category": "Immunosuppression",
     "isUrgent": false,
     "fileName": "tacrolimus-dosing",
+    "keywords": [
+      "prograf",
+      "envarsus",
+      "cni",
+      "calcineurin inhibitor",
+      "trough",
+      "level",
+      "rejection"
+    ],
     "overview": "<h3>Target Levels</h3><ul><li>Month 0-3: 8-10 ng/mL</li><li>Month 3-6: 6-8 ng/mL</li><li>&gt;6 Months: 5-7 ng/mL</li></ul>",
     "detailed": "<h3>Tacrolimus Dosing &amp; Monitoring</h3><p><strong>Initial Dosing:</strong> 0.05-0.1 mg/kg/day divided BID (use ideal or adjusted body weight per local protocol).</p><p><strong>Monitoring:</strong> Obtain trough levels 12 hours post-dose and just before next dose. Adjust dose to maintain target range based on post-transplant time and rejection risk.</p><p><strong>Drug Interactions (CYP3A4/5):</strong></p><ul><li><strong>Increase levels:</strong> Azole antifungals, macrolides (e.g., clarithromycin), diltiazem/verapamil, some antivirals, grapefruit juice.</li><li><strong>Decrease levels:</strong> Rifampin, phenytoin, carbamazepine, St. John’s wort.</li></ul><p><strong>Monitoring for Toxicity:</strong> Neurotoxicity (tremor, headache), nephrotoxicity (rising creatinine), hypertension, hyperglycemia, hyperkalemia, GI upset.</p>"
   },
@@ -32,6 +59,15 @@
     "category": "Rejection",
     "isUrgent": true,
     "fileName": "acute-rejection",
+    "keywords": [
+      "creatinine rise",
+      "graft failure",
+      "biopsy",
+      "thymoglobulin",
+      "steroids",
+      "dsa",
+      "antibody mediated"
+    ],
     "overview": "<h3>Signs</h3><ul><li>Rising Creatinine</li><li>Decreased Urine Output</li><li>Graft Tenderness</li></ul><h3>Action</h3><ul><li>Admit patient</li><li>Stat Ultrasound</li><li>Biopsy</li></ul>",
     "detailed": "<h3>Acute Rejection Protocol</h3><p><strong>Diagnosis:</strong> Kidney biopsy is gold standard. Rule out obstruction, vascular complications, dehydration, and drug toxicity first (Doppler ultrasound, med review).</p><p><strong>Treatment (Cellular Rejection, T-cell mediated):</strong></p><ul><li>Pulse Steroids: Methylprednisolone 500mg IV daily x 3 days (or per local protocol).</li><li>Optimize maintenance immunosuppression (tacrolimus level, mycophenolate dosing).</li><li>Thymoglobulin if steroid resistant or moderate-severe rejection (consult transplant nephrology).</li></ul><p><strong>Treatment (Antibody-Mediated Rejection):</strong></p><ul><li>Plasmapheresis + IVIG series.</li><li>Consider Rituximab/Bortezomib and other agents per transplant nephrology and institutional guidelines.</li></ul><p><strong>Monitoring:</strong> Daily labs (BMP, tacrolimus level, CBC), fluid balance, urine output, and blood pressure. Repeat biopsy if poor response.</p>"
   },
@@ -41,8 +77,17 @@
     "category": "Infectious Disease",
     "isUrgent": false,
     "fileName": "pjp-prophylaxis",
+    "keywords": [
+      "pneumonia",
+      "bactrim",
+      "tmp-smx",
+      "trimethoprim",
+      "sulfamethoxazole",
+      "fungal",
+      "infection"
+    ],
     "overview": "<h3>Standard Prophylaxis</h3><ul><li>First-line: TMP-SMX (Bactrim) single-strength (80/400 mg) PO daily (renal dose adjust).</li><li>Start: Once hemodynamically stable and able to take PO (typically within 3-7 days post-transplant).</li><li>Duration: 6-12 months post-transplant (center-specific; minimum 6 months).</li></ul>",
-    "detailed": "<h3>PJP Prophylaxis Protocol</h3><p><strong>Indication:</strong> All kidney transplant recipients without contraindication should receive routine Pneumocystis jirovecii pneumonia (PJP) prophylaxis.</p><h4>First-Line Agent</h4><p><strong>Trimethoprim-Sulfamethoxazole (TMP-SMX):</strong></p><ul><li><strong>Common regimen:</strong> Single-strength (SS) 80/400 mg PO once daily.</li><li><strong>Alternative regimen:</strong> Double-strength (DS) 160/800 mg PO three times weekly (e.g., Mon/Wed/Fri) if daily SS not tolerated.</li><li><strong>Start:</strong> As soon as patient can tolerate PO, typically within the first week post-transplant.</li><li><strong>Duration:</strong> At least 6 months, commonly up to 12 months post-transplant. Longer or restarted prophylaxis may be considered with augmented immunosuppression (e.g., treatment of rejection).</li></ul><h4>Renal Dose Considerations (Example Framework)</h4><p>Adjust dosing based on kidney function and local pharmacy guidance:</p><table border=\"1\" cellpadding=\"4\" cellspacing=\"0\"><thead><tr><th>eGFR (mL/min/1.73m<sup>2</sup>)</th><th>Suggested Prophylaxis Regimen</th></tr></thead><tbody><tr><td>&ge; 30</td><td>SS (80/400 mg) PO once daily</td></tr><tr><td>15-29</td><td>SS (80/400 mg) PO three times weekly (e.g., Mon/Wed/Fri)</td></tr><tr><td>&lt; 15 or dialysis</td><td>Individualize; consider SS (80/400 mg) after dialysis 2-3x/week in consultation with pharmacy/nephrology</td></tr></tbody></table><p><em>Always confirm with institutional/ pharmacy dosing guidelines, especially for severe renal impairment.</em></p><h4>Additional Benefits of TMP-SMX</h4><ul><li>Prevents PJP.</li><li>Reduces incidence of some bacterial urinary tract infections.</li><li>Provides prophylaxis against Nocardia and some other pathogens.</li></ul><h4>Contraindications &amp; Precautions</h4><ul><li>Severe sulfonamide allergy or history of TMP-SMX-associated severe cutaneous adverse reactions (e.g., SJS/TEN).</li><li>Significant cytopenias (e.g., severe leukopenia, thrombocytopenia) despite dose reduction and supportive care.</li><li>Severe hyperkalemia or creatinine rise attributable to TMP-SMX.</li></ul><h4>Alternative Regimens (for TMP-SMX Intolerance)</h4><p><em>Choice should be guided by transplant infectious diseases or nephrology.</em></p><ul><li><strong>Atovaquone</strong> 1500 mg PO once daily with a fatty meal.</li><li><strong>Dapsone</strong> 100 mg PO once daily (screen for G6PD deficiency before starting).</li><li><strong>Aerosolized pentamidine</strong> (less preferred in kidney transplant; consider if oral options not feasible).</li></ul><h4>Monitoring</h4><ul><li>Baseline and periodic CBC for cytopenias.</li><li>Electrolytes and creatinine to monitor for hyperkalemia and nephrotoxicity.</li><li>Assess for rash or new respiratory symptoms (breakthrough infection is rare but possible).</li></ul>"
+    "detailed": "<h3>PJP Prophylaxis Protocol</h3><p><strong>Indication:</strong> All kidney transplant recipients without contraindication should receive routine Pneumocystis jirovecii pneumonia (PJP) prophylaxis.</p><h4>First-Line Agent</h4><p><strong>Trimethoprim-Sulfamethoxazole (TMP-SMX):</strong></p><ul><li><strong>Common regimen:</strong> Single-strength (SS) 80/400 mg PO once daily.</li><li><strong>Alternative regimen:</strong> Double-strength (DS) 160/800 mg PO three times weekly (e.g., Mon/Wed/Fri) if daily SS not tolerated.</li><li><strong>Start:</strong> As soon as patient can tolerate PO, typically within the first week post-transplant.</li><li><strong>Duration:</strong> At least 6 months, commonly up to 12 months post-transplant. Longer or restarted prophylaxis may be considered with augmented immunosuppression (e.g., treatment of rejection).</li></ul><h4>Renal Dose Considerations (Example Framework)</h4><p>Adjust dosing based on kidney function and local pharmacy guidance:</p><table border=\"1\" cellpadding=\"4\" cellspacing=\"0\"><thead><tr><th>eGFR (mL/min/1.73m<sup>2</sup>)</th><th>Suggested Prophylaxis Regimen</th></tr></thead><tbody><tr><td>&ge; 30</td><td>SS (80/400 mg) PO once daily</td></tr><tr><td>15-29</td><td>SS (80/400 mg) PO three times weekly (e.g., Mon/Wed/Fri)</td></tr><tr><td>&lt; 15 or dialysis</td><td>Individualize; consider SS (80/400 mg) after dialysis 2-3x/week in consultation with pharmacy/nephrology</td></tr></tbody></table><p><strong>Always confirm with institutional/ pharmacy dosing guidelines, especially for severe renal impairment.</strong></p><h4>Additional Benefits of TMP-SMX</h4><ul><li>Prevents PJP.</li><li>Reduces incidence of some bacterial urinary tract infections.</li><li>Provides prophylaxis against Nocardia and some other pathogens.</li></ul><h4>Contraindications &amp; Precautions</h4><ul><li>Severe sulfonamide allergy or history of TMP-SMX-associated severe cutaneous adverse reactions (e.g., SJS/TEN).</li><li>Significant cytopenias (e.g., severe leukopenia, thrombocytopenia) despite dose reduction and supportive care.</li><li>Severe hyperkalemia or creatinine rise attributable to TMP-SMX.</li></ul><h4>Alternative Regimens (for TMP-SMX Intolerance)</h4><p><em>Choice should be guided by transplant infectious diseases or nephrology.</em></p><ul><li><strong>Atovaquone</strong> 1500 mg PO once daily with a fatty meal.</li><li><strong>Dapsone</strong> 100 mg PO once daily (screen for G6PD deficiency before starting).</li><li><strong>Aerosolized pentamidine</strong> (less preferred in kidney transplant; consider if oral options not feasible).</li></ul><h4>Monitoring</h4><ul><li>Baseline and periodic CBC for cytopenias.</li><li>Electrolytes and creatinine to monitor for hyperkalemia and nephrotoxicity.</li><li>Assess for rash or new respiratory symptoms (breakthrough infection is rare but possible).</li></ul>"
   },
   {
     "id": "bk-virus-screening",
@@ -50,6 +95,15 @@
     "category": "Infectious Disease",
     "isUrgent": false,
     "fileName": "bk-virus-screening",
+    "keywords": [
+      "bkv",
+      "nephropathy",
+      "pcr",
+      "viral load",
+      "cidofovir",
+      "ivig",
+      "leflunomide"
+    ],
     "overview": "<h3>Routine Screening</h3><ul><li>Plasma BK PCR monthly until month 9 post-transplant.</li><li>Then every 3 months until year 2 post-transplant.</li><li>Additional testing for otherwise unexplained rise in serum creatinine.</li></ul>",
     "detailed": "<h3>BK Polyomavirus (BKPyV) Screening &amp; Management Protocol</h3><p><strong>Goal:</strong> Detect BK viremia early and adjust immunosuppression to prevent BK virus-associated nephropathy and graft loss.</p><h4>Who to Screen</h4><ul><li>All kidney transplant recipients.</li><li>Any transplant recipient with otherwise unexplained increase in serum creatinine or new graft dysfunction.</li></ul><h4>Screening Schedule (Plasma BK PCR)</h4><ul><li><strong>Month 0-9 post-transplant:</strong> Monthly plasma BK PCR.</li><li><strong>Month 10-24 post-transplant:</strong> Every 3 months.</li><li><strong>Additional testing:</strong> Any time there is a rise in serum creatinine, after treatment of acute rejection, or following intensification of immunosuppression.</li></ul><h4>Interpreting Results (Example Thresholds)</h4><table border=\"1\" cellpadding=\"4\" cellspacing=\"0\"><thead><tr><th>Plasma BK Viral Load</th><th>Suggested Action</th></tr></thead><tbody><tr><td>&lt; lower limit of detection</td><td>Continue routine screening schedule.</td></tr><tr><td>1,000–9,999 copies/mL (or ~3–4 log<sub>10</sub> IU/mL)</td><td>Repeat BK PCR in 2-4 weeks to confirm persistence or progression; review other causes of creatinine rise. Consider small reduction in antimetabolite if trend is rising.</td></tr><tr><td>&ge; 10,000 copies/mL (or &ge;4 log<sub>10</sub> IU/mL) or persistently &gt;1,000 copies/mL on 2 tests</td><td>High suspicion for BK viremia at risk of nephropathy. Initiate stepwise immunosuppression reduction and consider biopsy if creatinine is rising.</td></tr></tbody></table><h4>Stepwise Immunosuppression Reduction (Example Approach)</h4><p><em>Adjustments should be individualized and coordinated with transplant nephrology.</em></p><ol><li><strong>First step:</strong> Reduce or hold antimetabolite (e.g., mycophenolate) by 25-50% while maintaining calcineurin inhibitor (CNI) at lower end of target trough.</li><li><strong>Second step (if viremia persists or increases after 2-4 weeks):</strong> Further decrease or temporarily discontinue antimetabolite; lower CNI trough target (e.g., tacrolimus trough towards lower end of recommended range).</li><li><strong>Third step:</strong> Additional CNI reduction or switch to alternative immunosuppression regimen per transplant team guidance.</li></ol><h4>Role of Kidney Biopsy</h4><ul><li>Consider biopsy in patients with significant or rising BK viremia and concomitant rise in serum creatinine to distinguish BK nephropathy from rejection or other causes.</li><li>Biopsy findings guide balance between further immunosuppression reduction and risk of rejection.</li></ul><h4>Follow-up Monitoring</h4><ul><li>Repeat BK PCR every 2-4 weeks after any immunosuppression change until viremia is decreasing and &lt; lower limit of detection.</li><li>Once cleared, resume routine screening schedule (e.g., every 3 months until year 2).</li><li>Monitor for rejection clinically and with labs as immunosuppression is reduced.</li></ul><h4>Nursing &amp; Resident Checklist</h4><ul><li>Ensure BK PCR is ordered and drawn according to schedule.</li><li>Track trends in BK viral load alongside serum creatinine and tacrolimus levels.</li><li>Confirm immunosuppression dose changes are implemented and documented.</li><li>Educate patients that BK monitoring is routine and not an indication of infection due to behavior or hygiene.</li></ul><p><em>Note: Exact viral load cutoffs and reduction steps may vary by institution and assay; adapt this framework to local transplant program policies.</em></p>"
   },
@@ -59,6 +113,15 @@
     "category": "Post-operative Care",
     "isUrgent": false,
     "fileName": "post-op-monitoring",
+    "keywords": [
+      "urine output",
+      "vital signs",
+      "blood pressure",
+      "foley",
+      "drain",
+      "pain control",
+      "ambulation"
+    ],
     "overview": "<h3>First 72 Hours Monitoring</h3> <ul> <li>ICU or monitored bed for first 24 hours (per transplant team).</li> <li>Hourly urine output and strict I/O charting.</li> <li>Vital signs at least q1h for first 12–24h, then q4h.</li> <li>Labs: BMP (including creatinine, K+), CBC, tacrolimus trough per protocol.</li> </ul>",
     "detailed": "<h3>Early Post-operative Monitoring Protocol (Kidney Transplant)</h3> <p><strong>Scope:</strong> Standard monitoring for adult kidney transplant recipients in the ICU or transplant floor during the first 72 hours after surgery. Always individualize for hemodynamic instability, delayed graft function, or other complications.</p> <h4>Location &amp; Level of Care</h4> <ul> <li>Admit to ICU or monitored transplant bed immediately post-op based on hemodynamic status and center policy.</li> <li>Transition to standard transplant floor once stable blood pressure, adequate urine output, and acceptable oxygenation are achieved.</li> </ul> <h4>Vital Signs &amp; Physical Assessment</h4> <table border=\"1\" cellpadding=\"4\" cellspacing=\"0\"> <thead> <tr> <th>Timeframe</th> <th>Vital Signs</th> <th>Physical Assessment</th> </tr> </thead> <tbody> <tr> <td>Immediate post-op (PACU/ICU, first 6–12h)</td> <td>BP, HR, RR, SpO<sub>2</sub>, temp q15–30 min initially, then at least q1h when stable.</td> <td>Neuro status, pain score, incision and drain checks at least q1–2h.</td> </tr> <tr> <td>Post-op day (POD) 0–1</td> <td>BP, HR, RR, SpO<sub>2</sub>, temp at least q1h in ICU or q2–4h on step-down, per transplant team.</td> <td>Focused cardiopulmonary exam, abdominal exam, graft site exam, assessment for edema, every shift and as needed.</td> </tr> <tr> <td>POD 2–3</td> <td>BP, HR, RR, SpO<sub>2</sub>, temp at least q4h if stable.</td> <td>Daily focused exam plus PRN if change in vitals, urine output, or labs.</td> </tr> </tbody> </table> <h4>Urine Output &amp; Fluid Balance</h4> <ul> <li><strong>Strict I/O:</strong> Measure and record all intake and urine output hourly in the first 24 hours, then at least q4h while hospitalized.</li> <li>Notify transplant team promptly if: <ul> <li>Urine output &lt; 0.5 mL/kg/hr for &gt; 2 consecutive hours, or</li> <li>Sudden drop in urine output, flank/graft pain, or rising creatinine.</li> </ul> </li> <li>Daily weight and cumulative fluid balance each morning.</li> </ul> <h4>Laboratory Monitoring (Example Framework)</h4> <table border=\"1\" cellpadding=\"4\" cellspacing=\"0\"> <thead> <tr> <th>Timeframe</th> <th>Labs</th> <th>Notes</th> </tr> </thead> <tbody> <tr> <td>Immediate post-op (on arrival to ICU/floor)</td> <td>BMP (Na, K, Cl, CO<sub>2</sub>, BUN, creatinine, glucose), CBC, Mg, Phos.</td> <td>Baseline post-transplant values; repeat K+ sooner if hyperkalemia suspected.</td> </tr> <tr> <td>POD 0–1</td> <td>BMP and Mg/Phos q12h (more frequently if unstable), CBC daily, tacrolimus trough once started and at steady state.</td> <td>Trend creatinine and electrolytes; adjust fluids and immunosuppression as directed.</td> </tr> <tr> <td>POD 2–3</td> <td>BMP, Mg/Phos, CBC daily; tacrolimus trough per transplant protocol (often daily until stable).</td> <td>Consider additional labs (LFTs, drug levels) if clinically indicated.</td> </tr> </tbody> </table> <h4>Blood Pressure Targets &amp; Monitoring</h4> <ul> <li>Monitor BP with manual or validated automatic cuff; avoid BP measurements in arm with AV fistula if present.</li> <li>In the early post-op period, maintain MAP and systolic BP per anesthesiology/transplant orders to support graft perfusion.</li> <li>See <em>Post-transplant Hypertension Management</em> protocol for chronic BP targets and medication choices.</li> </ul> <h4>When to Escalate or Call the Transplant Team</h4> <ul> <li>Rapid fall in urine output, rising creatinine, or suspected delayed graft function.</li> <li>Persistent systolic BP &gt; 180 mmHg or &lt; 90 mmHg despite initial measures.</li> <li>New chest pain, shortness of breath, pulmonary edema, or neurologic changes.</li> <li>Fever, rigors, or concern for infection.</li> </ul> <p><em>Note: This protocol provides a structured nursing and resident reference. Always follow institution-specific transplant orders and modify based on individual patient factors.</em></p>"
   },
@@ -68,6 +131,15 @@
     "category": "Cardiovascular",
     "isUrgent": false,
     "fileName": "post-transplant-hypertension",
+    "keywords": [
+      "high blood pressure",
+      "amlodipine",
+      "nifedipine",
+      "beta blocker",
+      "ace inhibitor",
+      "arb",
+      "hydralazine"
+    ],
     "overview": "<h3>BP Targets &amp; First-line Agents</h3> <ul> <li>Adult kidney transplant recipients: target &lt;130/80 mmHg (standardized office BP).</li> <li>First-line agents: dihydropyridine CCB (e.g., amlodipine) or ARB, when kidney function and potassium allow.</li> <li>Assess for drug interactions with calcineurin inhibitors and adjust immunosuppression levels accordingly.</li> </ul>",
     "detailed": "<h3>Post-transplant Hypertension Management Protocol</h3> <p><strong>Scope:</strong> Chronic blood pressure (BP) management in adult kidney transplant recipients after the immediate post-operative period. Early peri-operative BP goals for graft perfusion should follow anesthesiology/transplant surgeon orders.</p> <h4>Background</h4> <ul> <li>Hypertension is very common after kidney transplantation (often 60–80% of recipients) and is associated with cardiovascular events and graft loss.</li> <li>KDIGO blood pressure guidelines and expert reviews recommend a target BP of approximately &lt;130/80 mmHg for adult kidney transplant recipients using standardized office measurements, balancing cardiovascular risk reduction and graft perfusion.</li> </ul> <h4>Blood Pressure Targets</h4> <ul> <li><strong>Adult kidney transplant recipients:</strong> Aim for clinic BP &lt;130/80 mmHg when tolerated.</li> <li>Use standardized office BP technique (seated, back supported, feet on floor, appropriate cuff size, multiple readings averaged).</li> <li>Consider home BP monitoring to detect masked or white-coat hypertension.</li> </ul> <h4>Initial Assessment</h4> <ul> <li>Confirm persistent hypertension with repeated standardized measurements or home BP logs.</li> <li>Review: <ul> <li>All immunosuppressive medications (especially steroids and calcineurin inhibitors).</li> <li>Other medications that may affect BP (NSAIDs, decongestants, etc.).</li> <li>Volume status (edema, weight trends, urine output).</li> </ul> </li> <li>Check labs: BMP (focus on creatinine, K+), CBC, fasting lipids, and A1c as part of global cardiovascular risk assessment.</li> </ul> <h4>Pharmacologic Management (Example Framework)</h4> <p><em>Choices should follow institutional protocols and be individualized to kidney function, potassium, and comorbidities.</em></p> <table border=\"1\" cellpadding=\"4\" cellspacing=\"0\"> <thead> <tr> <th>Class</th> <th>Role in Kidney Transplant Recipients</th> <th>Key Considerations</th> </tr> </thead> <tbody> <tr> <td>Dihydropyridine CCB (e.g., amlodipine, nifedipine ER)</td> <td>Often preferred first-line agents in kidney transplant recipients.</td> <td>Can counteract vasoconstriction from calcineurin inhibitors; monitor for edema.</td> </tr> <tr> <td>ARB or ACE inhibitor</td> <td>Useful for proteinuric patients or those with LV dysfunction, CAD, or diabetes.</td> <td>Monitor creatinine and potassium closely; use cautiously early post-transplant or in renal artery stenosis; may be added when graft function is stable.</td> </tr> <tr> <td>Thiazide or loop diuretic</td> <td>Adjunct therapy in volume-expanded patients.</td> <td>Monitor electrolytes (Na+, K+) and volume status; loop diuretics preferred at lower GFR.</td> </tr> <tr> <td>Beta-blocker</td> <td>Consider in patients with CAD, arrhythmias, or HF.</td> <td>Monitor heart rate; may mask hypoglycemia in diabetics.</td> </tr> </tbody> </table> <h4>Stepwise Approach</h4> <ol> <li><strong>Lifestyle &amp; volume optimization:</strong> <ul> <li>Sodium restriction (e.g., &le;2 g/day if feasible and consistent with dietician advice).</li> <li>Assess for fluid overload; adjust diuretics if indicated.</li> <li>Weight management, smoking cessation, and exercise as tolerated.</li> </ul> </li> <li><strong>Start or up-titrate first-line agent:</strong> <ul> <li>Begin with a dihydropyridine CCB (e.g., amlodipine) or ARB when graft function and potassium allow.</li> <li>Monitor creatinine, potassium, and for peripheral edema within 1–2 weeks after any dose change.</li> </ul> </li> <li><strong>Add second agent if BP remains &gt;130/80 mmHg:</strong> <ul> <li>Combine classes (e.g., CCB + ARB or CCB + thiazide) according to comorbidities and lab values.</li> </ul> </li> <li><strong>Resistant hypertension:</strong> <ul> <li>BP above target despite 3 appropriately dosed agents including a diuretic.</li> <li>Evaluate for adherence, drug interactions, volume overload, and secondary causes (e.g., transplant renal artery stenosis, sleep apnea).</li> <li>Discuss with transplant nephrology and consider vascular imaging if clinically suspected.</li> </ul> </li> </ol> <h4>Drug Interactions &amp; Special Considerations</h4> <ul> <li>Non-dihydropyridine CCBs (e.g., diltiazem, verapamil) can increase calcineurin inhibitor levels; use only with transplant team guidance and monitor drug levels closely.</li> <li>NSAIDs can worsen kidney function and blunt antihypertensive effect; avoid unless specifically approved.</li> <li>Adjust antihypertensive medications when there is a major change in immunosuppression (e.g., high-dose steroids or rejection treatment).</li> </ul> <h4>Nursing &amp; Resident Checklist</h4> <ul> <li>Ensure accurate BP measurement and documentation (include position and cuff size if possible).</li> <li>Track BP trends on flowsheets and identify persistent readings &gt;130/80 mmHg.</li> <li>Confirm that follow-up labs (creatinine, potassium) are ordered after medication changes.</li> <li>Educate patients on home BP monitoring, medication adherence, and when to call the clinic (e.g., SBP &gt;180 or &lt;90 mmHg, new neurologic symptoms, chest pain, or dyspnea).</li> </ul> <p><em>Note: Targets and drug choices should be tailored to the individual and adapted to institutional transplant guidelines and local formulary.</em></p>"
   }

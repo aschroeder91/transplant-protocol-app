@@ -10,8 +10,10 @@ function Protocols() {
     const [searchTerm, setSearchTerm] = useState(initialSearch);
 
     const filteredProtocols = protocolsData.filter(p => {
-        const matchesSearch = p.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            p.category.toLowerCase().includes(searchTerm.toLowerCase());
+        const searchLower = searchTerm.toLowerCase();
+        const matchesSearch = p.title.toLowerCase().includes(searchLower) ||
+            p.category.toLowerCase().includes(searchLower) ||
+            (p.keywords && p.keywords.some(k => k.toLowerCase().includes(searchLower)));
         const matchesFilter = filter === 'urgent' ? p.isUrgent : true;
         return matchesSearch && matchesFilter;
     });

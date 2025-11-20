@@ -23,36 +23,71 @@ function Home() {
     };
 
     const [salzImage, setSalzImage] = useState('/salz.png');
-    // Audio files 1-3 trigger the frown image
+
+    // Define audio groups
     const frownAudioFiles = [audio1, audio2, audio3];
     const otherAudioFiles = [audio5, audio6, audio7, audio8];
-    const audioFiles = [...frownAudioFiles, ...otherAudioFiles];
+    const allAudioFiles = [...frownAudioFiles, ...otherAudioFiles];
 
-    const playRandomAudio = () => {
-        const randomIndex = Math.floor(Math.random() * audioFiles.length);
-        const selectedFile = audioFiles[randomIndex];
-        const audio = new Audio(selectedFile);
+    // Shuffle helper
+    const shuffleArray = (array) => {
+        const newArray = [...array];
+        for (let i = newArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+        }
+        return newArray;
+    };
 
-        // Check if the selected file is one of the frown-inducing audios
-        if (frownAudioFiles.includes(selectedFile)) {
+    // State for playlist
+    const [playlist, setPlaylist] = useState(() => shuffleArray(allAudioFiles));
+    const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+
+    const playNextAudio = () => {
+        if (allAudioFiles.length === 0) return;
+
+        // If playlist is empty, reshuffle
+        if (playlist.length === 0) {
+            const newPlaylist = shuffleArray([...allAudioFiles]);
+            setPlaylist(newPlaylist);
+            setCurrentTrackIndex(0);
+            playAudio(newPlaylist[0]);
+        } else {
+            // Play next in current playlist
+            const nextTrack = playlist[currentTrackIndex];
+            playAudio(nextTrack);
+
+            // Prepare for next click
+            if (currentTrackIndex < playlist.length - 1) {
+                setCurrentTrackIndex(prev => prev + 1);
+            } else {
+                // End of playlist, clear it so next click reshuffles
+                setPlaylist([]);
+            }
+        }
+    };
+
+    const playAudio = (audioFile) => {
+        const audio = new Audio(audioFile);
+
+        // Set image based on track
+        if (frownAudioFiles.includes(audioFile)) {
             setSalzImage('/salz-frown.png');
-
-            // Reset when audio ends
-            audio.onended = () => {
-                setSalzImage('/salz.png');
-            };
-
-            // Reset on error
-            audio.onerror = (e) => {
-                console.error("Audio error:", e);
-                setSalzImage('/salz.png');
-            };
+        } else {
+            setSalzImage('/salz-happy.png');
         }
 
-        // Play audio
+        audio.onended = () => {
+            setSalzImage('/salz.png');
+        };
+
+        audio.onerror = (e) => {
+            console.error("Audio playback error:", e);
+            setSalzImage('/salz.png');
+        };
+
         audio.play().catch(e => {
-            console.error("Error playing audio:", e);
-            // Revert image if play fails
+            console.error("Play failed:", e);
             setSalzImage('/salz.png');
         });
     };
@@ -85,12 +120,12 @@ function Home() {
                     <img
                         src={salzImage}
                         alt="Salz"
-                        onClick={playRandomAudio}
+                        onClick={playNextAudio}
                         style={{
                             position: 'absolute',
-                            top: '5px',
+                            top: '-10px',
                             right: '-40px',
-                            width: '100px',
+                            width: '140px',
                             height: 'auto',
                             zIndex: 10,
                             cursor: 'pointer'
