@@ -23,5 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
+# Reference Documents (ignore the directory ./Carilion)
+Carilion/
+
 # Custom Files
 aws-setup.md
