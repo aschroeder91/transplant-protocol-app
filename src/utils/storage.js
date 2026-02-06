@@ -1,5 +1,7 @@
 const FAVORITES_KEY = 'ktx_favorites';
 const RECENTS_KEY = 'ktx_recents';
+const ROLE_KEY = 'ktx_role';
+const CHECKLIST_STATE_PREFIX = 'ktx_checklist_state_';
 
 export const getFavorites = () => {
     const stored = localStorage.getItem(FAVORITES_KEY);
@@ -42,4 +44,26 @@ export const addToRecents = (protocolId) => {
         recents.pop();
     }
     localStorage.setItem(RECENTS_KEY, JSON.stringify(recents));
+};
+
+export const getRole = (defaultRoleId) => {
+    const stored = localStorage.getItem(ROLE_KEY);
+    return stored || defaultRoleId;
+};
+
+export const setRole = (roleId) => {
+    localStorage.setItem(ROLE_KEY, roleId);
+};
+
+export const getChecklistState = (checklistId) => {
+    const stored = localStorage.getItem(`${CHECKLIST_STATE_PREFIX}${checklistId}`);
+    return stored ? JSON.parse(stored) : [];
+};
+
+export const setChecklistState = (checklistId, state) => {
+    localStorage.setItem(`${CHECKLIST_STATE_PREFIX}${checklistId}`, JSON.stringify(state));
+};
+
+export const clearChecklistState = (checklistId) => {
+    localStorage.removeItem(`${CHECKLIST_STATE_PREFIX}${checklistId}`);
 };

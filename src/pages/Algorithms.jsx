@@ -1,6 +1,7 @@
 import React from 'react';
-import { ChevronLeft, Activity } from 'lucide-react';
+import { ChevronLeft, Activity, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { algorithms } from '../data/algorithms';
 
 function Algorithms() {
     return (
@@ -9,23 +10,33 @@ function Algorithms() {
                 <Link to="/tools" style={{ color: 'var(--text-primary)' }}>
                     <ChevronLeft size={24} />
                 </Link>
-                <h2 className="font-bold" style={{ fontSize: '1.5rem', margin: 0 }}>Algorithms</h2>
+                <h2 className="font-bold" style={{ fontSize: '1.5rem', margin: 0 }}>Algorithms / Paths</h2>
             </div>
 
-            <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '3rem',
-                backgroundColor: 'white',
-                borderRadius: 'var(--radius)',
-                textAlign: 'center',
-                color: 'var(--text-secondary)'
-            }}>
-                <Activity size={48} style={{ marginBottom: '1rem', opacity: 0.5 }} />
-                <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '0.5rem' }}>Coming Soon</h3>
-                <p>Decision support algorithms for fever workup and rejection management are under development.</p>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '1rem' }}>
+                Tap an algorithm to open a guided decision tree or static pathway.
+            </p>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {algorithms.map((algorithm) => (
+                    <Link
+                        key={algorithm.id}
+                        to={`/algorithms/${algorithm.id}`}
+                        className="algorithm-list-card"
+                    >
+                        <div className="algorithm-list-icon">
+                            <Activity size={20} />
+                        </div>
+                        <div style={{ flex: 1 }}>
+                            <div className="algorithm-list-title">{algorithm.title}</div>
+                            <div className="algorithm-list-subtitle">{algorithm.intro}</div>
+                        </div>
+                        <ChevronRight size={18} color="var(--text-secondary)" />
+                    </Link>
+                ))}
+                {algorithms.length === 0 && (
+                <div className="empty-state">No algorithms available yet.</div>
+                )}
             </div>
         </div>
     );

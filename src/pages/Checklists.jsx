@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { ChevronLeft, CheckSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import RoleSelector from '../components/RoleSelector';
+import { checklists, isChecklistVisibleForRole } from '../data/checklists';
+import { DEFAULT_ROLE_ID, getRoleLabel } from '../data/roles';
+import { getRole, setRole } from '../utils/storage';
 
 function Checklists() {
+    const [roleId, setRoleId] = useState(() => getRole(DEFAULT_ROLE_ID));
+
+    useEffect(() => {
+        setRole(roleId);
+    }, [roleId]);
+
+    const visibleChecklists = useMemo(
+        () => checklists.filter((item) => isChecklistVisibleForRole(item, roleId)),
+        [roleId]
+    );
+
     return (
         <div className="container p-4">
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem', gap: '0.5rem' }}>
@@ -12,20 +27,29 @@ function Checklists() {
                 <h2 className="font-bold" style={{ fontSize: '1.5rem', margin: 0 }}>Checklists</h2>
             </div>
 
-            <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '3rem',
-                backgroundColor: 'white',
-                borderRadius: 'var(--radius)',
-                textAlign: 'center',
-                color: 'var(--text-secondary)'
-            }}>
-                <CheckSquare size={48} style={{ marginBottom: '1rem', opacity: 0.5 }} />
-                <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '0.5rem' }}>Coming Soon</h3>
-                <p>Interactive checklists for pre-transplant workup and discharge are under development.</p>
+            <RoleSelector value={roleId} onChange={setRoleId} />
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1.5rem' }}>
+                {visibleChecklists.map((item) => (
+                    <Link
+                        key={item.id}
+                        to={`/checklists/${item.id}`}
+                        className="checklist-card"
+                    >
+                        <div className="checklist-card-icon">
+                            <CheckSquare size={22} />
+                        </div>
+                        <div>
+                            <div className="checklist-card-title">{item.title}</div>
+                            <div className="checklist-card-summary">{item.summary}</div>
+                        </div>
+                    </Link>
+                ))}
+                {visibleChecklists.length === 0 && (
+                    <div className="empty-state">
+                        No checklists are assigned to {getRoleLabel(roleId)}. Try a different role.
+                    </div>
+                )}
             </div>
         </div>
     );

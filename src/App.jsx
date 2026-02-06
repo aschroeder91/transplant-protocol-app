@@ -13,6 +13,10 @@ import Checklists from './pages/Checklists';
 import Algorithms from './pages/Algorithms';
 import Medications from './pages/Medications';
 import Feedback from './pages/Feedback';
+import ChecklistView from './pages/ChecklistView';
+import ProtocolFiles from './pages/ProtocolFiles';
+import AlgorithmView from './pages/AlgorithmView';
+import CptCodes from './pages/CptCodes';
 
 function Layout() {
   const location = useLocation();
@@ -34,9 +38,13 @@ function Layout() {
           <Route path="/directory" element={<Directory />} />
           <Route path="/calculators" element={<Calculators />} />
           <Route path="/checklists" element={<Checklists />} />
+          <Route path="/checklists/:id" element={<ChecklistView />} />
           <Route path="/algorithms" element={<Algorithms />} />
+          <Route path="/algorithms/:id" element={<AlgorithmView />} />
           <Route path="/medications" element={<Medications />} />
           <Route path="/feedback" element={<Feedback />} />
+          <Route path="/protocol-files" element={<ProtocolFiles />} />
+          <Route path="/documentation/cpt-codes" element={<CptCodes />} />
         </Routes>
       </div>
 

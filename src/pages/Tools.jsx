@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Book, Calculator, Phone, CheckSquare, Activity, Pill, MessageSquare } from 'lucide-react';
+import RoleSelector from '../components/RoleSelector';
+import { DEFAULT_ROLE_ID } from '../data/roles';
+import { getRole, setRole } from '../utils/storage';
 
 function Tools() {
+    const [roleId, setRoleId] = useState(() => getRole(DEFAULT_ROLE_ID));
+
+    useEffect(() => {
+        setRole(roleId);
+    }, [roleId]);
+
     const tools = [
         {
             id: 'directory',
@@ -16,12 +25,7 @@ function Tools() {
             id: 'calculators',
             label: 'Calculators',
             icon: <Calculator size={32} />,
-            path: null, // Special handling for multiple links or a submenu? 
-            // Plan said "Calculators (external links)". 
-            // Let's make this a submenu or just list them here?
-            // User said: "Calculators button from the Tools page"
-            // So this should go to a Calculators page or expand.
-            // Let's make it a route for now: /calculators
+            // Calculators (external links) live on the Calculators page.
             path: '/calculators',
             color: '#10b981', // Emerald 500
             isExternal: false
@@ -35,8 +39,16 @@ function Tools() {
             isExternal: false
         },
         {
+            id: 'protocol-files',
+            label: 'Protocol Files',
+            icon: <Book size={32} />,
+            path: '/protocol-files',
+            color: '#0ea5e9', // Sky 500
+            isExternal: false
+        },
+        {
             id: 'algorithms',
-            label: 'Algorithms',
+            label: 'Algorithms / Paths',
             icon: <Activity size={32} />,
             path: '/algorithms',
             color: '#ef4444', // Red 500
@@ -60,16 +72,29 @@ function Tools() {
         }
     ];
 
+    const documentationTools = [
+        {
+            id: 'cpt-codes',
+            label: 'CPT Codes',
+            icon: <Book size={32} />,
+            path: '/documentation/cpt-codes',
+            color: '#38bdf8'
+        }
+    ];
+
     return (
         <div className="container p-4">
             <h2 className="font-bold" style={{ fontSize: '1.5rem', marginBottom: '1.5rem' }}>Tools</h2>
 
+            <RoleSelector value={roleId} onChange={setRoleId} />
+
             <div style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',
-                gap: '1rem'
+                gap: '1rem',
+                marginTop: '1.5rem'
             }}>
-                {tools.map(tool => (
+                {[...tools, ...documentationTools].map(tool => (
                     <Link
                         key={tool.id}
                         to={tool.path}
