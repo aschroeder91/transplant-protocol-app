@@ -3,42 +3,84 @@ const RECENTS_KEY = 'ktx_recents';
 const ROLE_KEY = 'ktx_role';
 const CHECKLIST_STATE_PREFIX = 'ktx_checklist_state_';
 
-export const getFavorites = () => {
-    const stored = localStorage.getItem(FAVORITES_KEY);
-    return stored ? JSON.parse(stored) : [];
+const normalizeEntryKey = (value) => {
+    if (typeof value !== 'string') {
+        return '';
+    }
+
+    // Backward compatibility: old favorites/recents stored plain protocol ids.
+    if (value.includes(':')) {
+        return value;
+    }
+
+    return `resource:${value}`;
 };
 
-export const toggleFavorite = (protocolId) => {
+const normalizeKeyList = (rawList) => {
+    if (!Array.isArray(rawList)) {
+        return [];
+    }
+
+    const normalized = rawList
+        .map((value) => normalizeEntryKey(value))
+        .filter(Boolean);
+
+    return Array.from(new Set(normalized));
+};
+
+export const getFavorites = () => {
+    const stored = localStorage.getItem(FAVORITES_KEY);
+    const favorites = stored ? normalizeKeyList(JSON.parse(stored)) : [];
+    return favorites;
+};
+
+export const toggleFavorite = (entryKey) => {
+    const normalizedKey = normalizeEntryKey(entryKey);
+    if (!normalizedKey) {
+        return getFavorites();
+    }
+
     const favorites = getFavorites();
-    const index = favorites.indexOf(protocolId);
+    const index = favorites.indexOf(normalizedKey);
     let newFavorites;
 
     if (index === -1) {
-        newFavorites = [...favorites, protocolId];
+        newFavorites = [...favorites, normalizedKey];
     } else {
-        newFavorites = favorites.filter(id => id !== protocolId);
+        newFavorites = favorites.filter((id) => id !== normalizedKey);
     }
 
     localStorage.setItem(FAVORITES_KEY, JSON.stringify(newFavorites));
     return newFavorites;
 };
 
-export const isFavorite = (protocolId) => {
+export const isFavorite = (entryKey) => {
+    const normalizedKey = normalizeEntryKey(entryKey);
+    if (!normalizedKey) {
+        return false;
+    }
+
     const favorites = getFavorites();
-    return favorites.includes(protocolId);
+    return favorites.includes(normalizedKey);
 };
 
 export const getRecents = () => {
     const stored = localStorage.getItem(RECENTS_KEY);
-    return stored ? JSON.parse(stored) : [];
+    const recents = stored ? normalizeKeyList(JSON.parse(stored)) : [];
+    return recents;
 };
 
-export const addToRecents = (protocolId) => {
+export const addToRecents = (entryKey) => {
+    const normalizedKey = normalizeEntryKey(entryKey);
+    if (!normalizedKey) {
+        return;
+    }
+
     let recents = getRecents();
     // Remove if already exists to move it to top
-    recents = recents.filter(id => id !== protocolId);
+    recents = recents.filter((id) => id !== normalizedKey);
     // Add to front
-    recents.unshift(protocolId);
+    recents.unshift(normalizedKey);
     // Limit to 20
     if (recents.length > 20) {
         recents.pop();

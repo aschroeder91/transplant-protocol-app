@@ -1,16 +1,15 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, CheckSquare } from 'lucide-react';
-import ChecklistMarkdown from '../components/ChecklistMarkdown';
-import { getChecklistById } from '../data/checklists';
+import { ArrowLeft, Calculator, ExternalLink } from 'lucide-react';
+import { calculators } from '../data/calculators';
 
-function ChecklistView() {
+function CalculatorView() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const checklist = getChecklistById(id);
+  const calculator = calculators.find((item) => item.id === id);
 
-  if (!checklist) {
-    return <div className="p-4">Checklist not found.</div>;
+  if (!calculator) {
+    return <div className="p-4">Calculator not found.</div>;
   }
 
   return (
@@ -49,17 +48,37 @@ function ChecklistView() {
             textOverflow: 'ellipsis'
           }}
         >
-          <CheckSquare size={18} />
-          <span>{checklist.title}</span>
+          <Calculator size={18} />
+          <span>{calculator.name}</span>
         </h1>
         <div style={{ width: 24 }} />
       </div>
 
       <div style={{ flex: 1, overflowY: 'auto', padding: '1rem' }}>
-        <ChecklistMarkdown checklistId={checklist.id} content={checklist.content} />
+        <div className="algorithm-intro">
+          <p>{calculator.description}</p>
+        </div>
+
+        <a
+          href={calculator.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="protocol-file-card"
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <div className="protocol-file-icon" style={{ backgroundColor: '#d1fae5', color: '#059669' }}>
+              <Calculator size={22} />
+            </div>
+            <div>
+              <div className="protocol-file-title">Open in MDCalc</div>
+              <div className="protocol-file-name">{calculator.url}</div>
+            </div>
+          </div>
+          <ExternalLink size={18} color="var(--text-secondary)" />
+        </a>
       </div>
     </div>
   );
 }
 
-export default ChecklistView;
+export default CalculatorView;

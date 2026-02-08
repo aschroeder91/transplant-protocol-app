@@ -6,7 +6,6 @@
   --surface-color: #ffffff;
   --text-primary: #0f172a;
   --text-secondary: #475569;
-  --urgent-color: #ef4444;
   --border-color: #e2e8f0;
   --radius: 0.5rem;
   --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -79,6 +78,40 @@ button {
   /* Ensure content clears the nav + safe area */
 }
 
+.home-shortcut {
+  position: absolute;
+  top: calc(12px + env(safe-area-inset-top));
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  z-index: 110;
+}
+
+.favorite-shortcut {
+  position: absolute;
+  top: calc(12px + env(safe-area-inset-top));
+  right: 56px;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  z-index: 110;
+}
+
 .bottom-nav {
   position: absolute;
   bottom: 0;
@@ -109,11 +142,6 @@ button {
 
 .nav-item.active {
   color: var(--primary-color);
-}
-
-/* Utility classes */
-.text-urgent {
-  color: var(--urgent-color);
 }
 
 .font-bold {

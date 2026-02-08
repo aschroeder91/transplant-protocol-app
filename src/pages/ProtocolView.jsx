@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import protocolsData from '../data/protocols.json';
-import { Star, ArrowLeft, AlertTriangle } from 'lucide-react';
-import { isFavorite, toggleFavorite, addToRecents } from '../utils/storage';
+import { ArrowLeft, BookOpenText } from 'lucide-react';
 
 function ProtocolView() {
     const { id } = useParams();
@@ -10,23 +9,10 @@ function ProtocolView() {
     const protocol = protocolsData.find(p => p.id === id);
 
     const [activeTab, setActiveTab] = useState('simple'); // 'simple' or 'detailed'
-    const [favorited, setFavorited] = useState(false);
-
-    useEffect(() => {
-        if (protocol) {
-            addToRecents(protocol.id);
-            setFavorited(isFavorite(protocol.id));
-        }
-    }, [protocol]);
 
     if (!protocol) {
-        return <div className="p-4">Protocol not found.</div>;
+        return <div className="p-4">Resource not found.</div>;
     }
-
-    const handleToggleFavorite = () => {
-        toggleFavorite(protocol.id);
-        setFavorited(!favorited);
-    };
 
     return (
         <div className="container" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
@@ -46,30 +32,13 @@ function ProtocolView() {
                     <ArrowLeft size={24} />
                 </button>
                 <h1 style={{ fontSize: '1.1rem', fontWeight: '600', flex: 1, textAlign: 'center', margin: '0 1rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                    {protocol.title}
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+                        <BookOpenText size={18} />
+                        <span>{protocol.title}</span>
+                    </span>
                 </h1>
-                <button onClick={handleToggleFavorite}>
-                    <Star size={24} fill={favorited ? "#eab308" : "none"} color={favorited ? "#eab308" : "var(--text-secondary)"} />
-                </button>
+                <div style={{ width: 24 }} />
             </div>
-
-            {/* Urgent Banner */}
-            {protocol.isUrgent && (
-                <div style={{
-                    backgroundColor: '#fef2f2',
-                    color: 'var(--urgent-color)',
-                    padding: '0.75rem 1rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    fontSize: '0.9rem',
-                    fontWeight: '600',
-                    borderBottom: '1px solid #fee2e2'
-                }}>
-                    <AlertTriangle size={18} />
-                    <span>URGENT PROTOCOL</span>
-                </div>
-            )}
 
             {/* Content Area */}
             <div style={{ flex: 1, overflowY: 'auto', padding: '1rem' }}>

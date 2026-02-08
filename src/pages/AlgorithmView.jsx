@@ -71,18 +71,20 @@ function AlgorithmView() {
             fontSize: '1.05rem',
             fontWeight: '600',
             flex: 1,
-            textAlign: 'center',
             margin: '0 1rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '0.4rem',
             whiteSpace: 'nowrap',
             overflow: 'hidden',
             textOverflow: 'ellipsis'
           }}
         >
-          {algorithm.title}
+          <Activity size={18} />
+          <span>{algorithm.title}</span>
         </h1>
-        <div style={{ color: 'var(--text-secondary)' }}>
-          <Activity size={22} />
-        </div>
+        <div style={{ width: 24 }} />
       </div>
 
       <div style={{ flex: 1, overflowY: 'auto', padding: '1rem' }}>

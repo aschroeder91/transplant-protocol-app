@@ -18,7 +18,7 @@ function Home() {
     const handleSearch = (e) => {
         e.preventDefault();
         if (searchTerm.trim()) {
-            navigate(`/protocols?search=${encodeURIComponent(searchTerm)}`);
+            navigate(`/resources?search=${encodeURIComponent(searchTerm)}`);
         }
     };
 
@@ -104,7 +104,7 @@ function Home() {
                     <Search size={20} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }} />
                     <input
                         type="text"
-                        placeholder="Search protocols..."
+                        placeholder="Search resources..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         style={{

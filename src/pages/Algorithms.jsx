@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { ChevronLeft, Activity, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { algorithms } from '../data/algorithms';
+import RoleSelector from '../components/RoleSelector';
+import { algorithms, isAlgorithmVisibleForRole } from '../data/algorithms';
+import { DEFAULT_ROLE_ID, getRoleLabel } from '../data/roles';
+import { getRole, setRole } from '../utils/storage';
 
 function Algorithms() {
+    const [roleId, setRoleId] = useState(() => getRole(DEFAULT_ROLE_ID));
+
+    useEffect(() => {
+        setRole(roleId);
+    }, [roleId]);
+
+    const visibleAlgorithms = useMemo(
+        () => algorithms.filter((item) => isAlgorithmVisibleForRole(item, roleId)),
+        [roleId]
+    );
+
     return (
         <div className="container p-4">
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem', gap: '0.5rem' }}>
@@ -17,8 +31,10 @@ function Algorithms() {
                 Tap an algorithm to open a guided decision tree or static pathway.
             </p>
 
+            <RoleSelector value={roleId} onChange={setRoleId} />
+
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                {algorithms.map((algorithm) => (
+                {visibleAlgorithms.map((algorithm) => (
                     <Link
                         key={algorithm.id}
                         to={`/algorithms/${algorithm.id}`}
@@ -34,8 +50,8 @@ function Algorithms() {
                         <ChevronRight size={18} color="var(--text-secondary)" />
                     </Link>
                 ))}
-                {algorithms.length === 0 && (
-                <div className="empty-state">No algorithms available yet.</div>
+                {visibleAlgorithms.length === 0 && (
+                <div className="empty-state">No algorithms are assigned to {getRoleLabel(roleId)}. Try a different role.</div>
                 )}
             </div>
         </div>
