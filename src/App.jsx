@@ -21,10 +21,30 @@ import AlgorithmView from './pages/AlgorithmView';
 import CptCodes from './pages/CptCodes';
 import { addToRecents, isFavorite, toggleFavorite } from './utils/storage';
 import { getTrackableEntryByPath } from './data/trackableEntries';
+import { useRegisterSW } from 'virtual:pwa-register/react';
 
 function Layout() {
   const location = useLocation();
   const [, forceRerender] = useReducer((value) => value + 1, 0);
+
+  // Update notification banner
+  const {
+    needRefresh: [needRefresh, setNeedRefresh],
+    updateServiceWorker,
+  } = useRegisterSW({
+    onRegistered(r) {
+      if (r) {
+        setInterval(() => {
+          r.update();
+        }, 60 * 60 * 1000); // Check for updates every hour
+      }
+    },
+  });
+
+  const closeUpdateBanner = () => {
+    setNeedRefresh(false);
+  };
+
   const currentTrackableEntry = useMemo(
     () => getTrackableEntryByPath(location.pathname),
     [location.pathname]
@@ -51,6 +71,29 @@ function Layout() {
 
   return (
     <div className="app-layout">
+      {needRefresh && (
+        <div className="update-banner">
+          <div className="update-banner-content">
+            <span className="update-banner-text">New version available!</span>
+            <div className="update-banner-actions">
+              <button
+                type="button"
+                className="update-banner-button update-banner-refresh"
+                onClick={() => updateServiceWorker(true)}
+              >
+                Update Now
+              </button>
+              <button
+                type="button"
+                className="update-banner-button update-banner-close"
+                onClick={closeUpdateBanner}
+              >
+                Later
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
