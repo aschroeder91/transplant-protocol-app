@@ -11,6 +11,13 @@ import audio6 from '../assets/audio/6.mp3';
 import audio7 from '../assets/audio/7.mp3';
 import audio8 from '../assets/audio/8.mp3';
 
+const SALZ_IMAGE_VERSION = '20260309-1';
+const SALZ_IMAGES = {
+    neutral: `/salz.png?v=${SALZ_IMAGE_VERSION}`,
+    frown: `/salz-frown.png?v=${SALZ_IMAGE_VERSION}`,
+    happy: `/salz-happy.png?v=${SALZ_IMAGE_VERSION}`,
+};
+
 function Home() {
     const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
@@ -22,7 +29,7 @@ function Home() {
         }
     };
 
-    const [salzImage, setSalzImage] = useState('/salz.png');
+    const [salzImage, setSalzImage] = useState(SALZ_IMAGES.neutral);
 
     // Define audio groups
     const frownAudioFiles = [audio1, audio2, audio3];
@@ -72,23 +79,23 @@ function Home() {
 
         // Set image based on track
         if (frownAudioFiles.includes(audioFile)) {
-            setSalzImage('/salz-frown.png');
+            setSalzImage(SALZ_IMAGES.frown);
         } else {
-            setSalzImage('/salz-happy.png');
+            setSalzImage(SALZ_IMAGES.happy);
         }
 
         audio.onended = () => {
-            setSalzImage('/salz.png');
+            setSalzImage(SALZ_IMAGES.neutral);
         };
 
         audio.onerror = (e) => {
             console.error("Audio playback error:", e);
-            setSalzImage('/salz.png');
+            setSalzImage(SALZ_IMAGES.neutral);
         };
 
         audio.play().catch(e => {
             console.error("Play failed:", e);
-            setSalzImage('/salz.png');
+            setSalzImage(SALZ_IMAGES.neutral);
         });
     };
 
