@@ -13,7 +13,6 @@ import audio8 from '../assets/audio/8.mp3';
 
 const SALZ_IMAGE_VERSION = '20260309-1';
 const SALZ_IMAGES = {
-    neutral: `/salz.png?v=${SALZ_IMAGE_VERSION}`,
     frown: `/salz-frown.png?v=${SALZ_IMAGE_VERSION}`,
     happy: `/salz-happy.png?v=${SALZ_IMAGE_VERSION}`,
 };
@@ -29,7 +28,7 @@ function Home() {
         }
     };
 
-    const [salzImage, setSalzImage] = useState(SALZ_IMAGES.neutral);
+    const [salzImage, setSalzImage] = useState(SALZ_IMAGES.happy);
 
     // Define audio groups
     const frownAudioFiles = [audio1, audio2, audio3];
@@ -85,17 +84,17 @@ function Home() {
         }
 
         audio.onended = () => {
-            setSalzImage(SALZ_IMAGES.neutral);
+            setSalzImage(SALZ_IMAGES.happy);
         };
 
         audio.onerror = (e) => {
             console.error("Audio playback error:", e);
-            setSalzImage(SALZ_IMAGES.neutral);
+            setSalzImage(SALZ_IMAGES.happy);
         };
 
         audio.play().catch(e => {
             console.error("Play failed:", e);
-            setSalzImage(SALZ_IMAGES.neutral);
+            setSalzImage(SALZ_IMAGES.happy);
         });
     };
 
